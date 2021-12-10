@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'drf_yasg',
+    'knox',
     'product',
+    'account'
     
 ]
 
@@ -58,6 +60,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
 ]
+
+#Autentifikatsiya
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+  ]
+}
 
 ROOT_URLCONF = 'fast_food.urls'
 

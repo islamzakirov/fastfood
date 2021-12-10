@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 from .models import *
 from .serializers import *
@@ -33,3 +33,13 @@ class AloqaViewSet(viewsets.ModelViewSet):
     ordering_fields = ['name', 'number']
     ordering = ['name']
     search_fields = ['name']
+
+class CardItemViewSet(viewsets.ModelViewSet):
+    queryset = CardItem.objects.all()
+    serializer_class = CardItemSerializer        
+    permission_classes = [IsAuthenticated]
+
+class CardViewSet(viewsets.ModelViewSet):
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer
+    permission_classes = [IsAuthenticated]
