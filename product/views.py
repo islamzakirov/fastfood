@@ -7,7 +7,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from rest_framework.authentication import BaseAuthentication
 from rest_framework import filters
-from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
+# from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 from django_filters.rest_framework import DjangoFilterBackend
 
 class FoodViewSet(viewsets.ModelViewSet):
@@ -22,8 +22,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class FoodNumberPaginations(PageNumberPagination):
-    page_size = 3
+# class FoodNumberPaginations(PageNumberPagination):
+#     page_size = 3
 
 class AloqaViewSet(viewsets.ModelViewSet):
     queryset = Aloqa.objects.all()
